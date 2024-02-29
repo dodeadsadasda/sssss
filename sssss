@@ -1,0 +1,29 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("หมาขาว HUB", "Ocean")
+local Tab = Window:NewTab("คนสร้าง")
+local Section = Tab:NewSection("BYหมาขาว")
+local Tab = Window:NewTab("ฟาม")
+local Section = Tab:NewSection("ฟาม")
+Section:NewToggle("rock", "แตงโม", function(state)
+    if state then
+        _G.bringmob = true --ปิด=false  เปิด=true
+        while _G.bringmob do wait()
+        for i,v in pairs(game:GetService("Workspace").Farm.Rock:GetDescendants()) do
+             if v.Name == "Sound" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
+        wait(.1)
+             end 
+        end
+        end
+    else
+        _G.bringmob = false --ปิด=false  เปิด=true
+        while _G.bringmob do wait()
+        for i,v in pairs(game:GetService("Workspace").Farm.Rock:GetDescendants()) do
+             if v.Name == "Sound" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
+        wait(.1)
+             end 
+        end
+        end
+    end
+end)
